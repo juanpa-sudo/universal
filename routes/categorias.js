@@ -1,5 +1,8 @@
 const express = require("express");
-const { crearCategoria, listCategoria } = require("../controller/Categorias");
+const {
+  crearCategoria,
+  listCategoria,
+} = require("../controller/CategoriasController");
 const router = express.Router();
 
 router.post("/", crearCategoria);

@@ -4,7 +4,7 @@ const {
   listarDepartamentos,
   editarDepartamentos,
   eliminarDepartamento,
-} = require("../controller/Departamentos");
+} = require("../controller/DepartamentosController");
 
 const router = express.Router();
 

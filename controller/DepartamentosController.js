@@ -1,21 +1,22 @@
-const { Departamento } = require("../models/index");
+const { Departamentos } = require("../models/index");
 
 const crearDepartamentos = async (req, res) => {
   const { body } = req;
-  const departamentosNew = await Departamento.create(body);
+  const departamentosNew = await Departamentos.create(body);
   res.json(departamentosNew);
 };
 
 const listarDepartamentos = async (req, res) => {
-  const departamentos = await Departamento.findAll();
+  const departamentos = await Departamentos.findAll({});
   res.json({
     departamentos,
   });
 };
+
 const editarDepartamentos = async (req, res) => {
   const { body } = req;
   const { id } = req.params;
-  const departamentoEditado = await Departamento.update(body, {
+  const departamentoEditado = await Departamentos.update(body, {
     where: {
       id,
     },
@@ -27,7 +28,7 @@ const editarDepartamentos = async (req, res) => {
 const eliminarDepartamento = async (req, res) => {
   const { id } = req.params;
 
-  const departamentoEliminado = await Departamento.destroy({
+  const departamentoEliminado = await Departamentos.destroy({
     where: {
       id,
     },

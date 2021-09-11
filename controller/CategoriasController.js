@@ -1,22 +1,21 @@
-const { Categoria } = require("../models");
-const { Departamento } = require("../models");
+const { Categorias } = require("../models");
+const { Departamentos } = require("../models");
 
 const crearCategoria = async (req, res) => {
   const { body } = req;
-  const categoriaNew = await Categoria.create(body);
+  const categoriaNew = await Categorias.create(body);
 
   res.json(categoriaNew);
 };
 
 const listCategoria = async (req, res) => {
   const { departamento_id } = req.params;
-  const prueba = await Departamento.findAll({
+  const prueba = await Departamentos.findAll({
     where: {
       id: departamento_id,
     },
     include: {
-      model: Categoria,
-      as: "categoria",
+      model: Categorias,
     },
   });
   res.json(prueba);

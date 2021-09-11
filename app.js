@@ -2,7 +2,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded

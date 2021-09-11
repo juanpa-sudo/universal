@@ -1,48 +1,53 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Productos', {
+    await queryInterface.createTable("Productos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nombre: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       precio: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
       },
       descripcion: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       materiales: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       garantia: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       recomendaciones: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       tamaño: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       categoria_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "categorias", //Nombre de la tabla a relacionar
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Productos');
-  }
+    await queryInterface.dropTable("Productos");
+  },
 };

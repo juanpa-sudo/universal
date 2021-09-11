@@ -12,7 +12,7 @@ module.exports = {
      * }], {});
      /*/
 
-    await queryInterface.bulkInsert("categoria", [
+    await queryInterface.bulkInsert("categorias", [
       {
         nombre: "Repuestos Para Ollas",
         departamento_id: 7,
@@ -210,6 +210,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("categoria", null, {});
+    await queryInterface.bulkDelete("categorias", null, {});
   },
 };

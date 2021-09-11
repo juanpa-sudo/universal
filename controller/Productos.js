@@ -1,8 +1,16 @@
-const { Productos, Categoria, Imagen } = require("../models");
+const { Productos, Categorias, Imagen } = require("../models");
 
 const listarProductos = async (req, res) => {
   const { categoria_id } = req.params;
-  const productos = await Productos.findAll({});
+  const productos = await Categorias.findAll({
+    where: { id: categoria_id },
+    include: {
+      model: Productos,
+      include: {
+        model: Imagen,
+      },
+    },
+  });
   res.json(productos);
 };
 
